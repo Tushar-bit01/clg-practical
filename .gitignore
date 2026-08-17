@@ -1,0 +1,30 @@
+# Build files
+build/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+install_manifest.txt
+
+# Compiled binaries
+*.o
+*.a
+*.dylib
+*.so
+*.exe
+
+# IDE / editor temporary files
+*.swp
+*.swo
+*~
+
+# Debug / crash files
+*.dSYM/
