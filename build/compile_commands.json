@@ -1,0 +1,38 @@
+[
+{
+  "directory": "/Users/tushar/Documents/feedback/StudentFeedback/build",
+  "command": "/usr/bin/c++  -I/Users/tushar/Documents/feedback/StudentFeedback/include -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/student_feedback.dir/src/main.cc.o -c /Users/tushar/Documents/feedback/StudentFeedback/src/main.cc",
+  "file": "/Users/tushar/Documents/feedback/StudentFeedback/src/main.cc",
+  "output": "CMakeFiles/student_feedback.dir/src/main.cc.o"
+},
+{
+  "directory": "/Users/tushar/Documents/feedback/StudentFeedback/build",
+  "command": "/usr/bin/c++  -I/Users/tushar/Documents/feedback/StudentFeedback/include -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/student_feedback.dir/src/App.cc.o -c /Users/tushar/Documents/feedback/StudentFeedback/src/App.cc",
+  "file": "/Users/tushar/Documents/feedback/StudentFeedback/src/App.cc",
+  "output": "CMakeFiles/student_feedback.dir/src/App.cc.o"
+},
+{
+  "directory": "/Users/tushar/Documents/feedback/StudentFeedback/build",
+  "command": "/usr/bin/c++  -I/Users/tushar/Documents/feedback/StudentFeedback/include -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/student_feedback.dir/src/Button.cc.o -c /Users/tushar/Documents/feedback/StudentFeedback/src/Button.cc",
+  "file": "/Users/tushar/Documents/feedback/StudentFeedback/src/Button.cc",
+  "output": "CMakeFiles/student_feedback.dir/src/Button.cc.o"
+},
+{
+  "directory": "/Users/tushar/Documents/feedback/StudentFeedback/build",
+  "command": "/usr/bin/c++  -I/Users/tushar/Documents/feedback/StudentFeedback/include -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/student_feedback.dir/src/Rating.cc.o -c /Users/tushar/Documents/feedback/StudentFeedback/src/Rating.cc",
+  "file": "/Users/tushar/Documents/feedback/StudentFeedback/src/Rating.cc",
+  "output": "CMakeFiles/student_feedback.dir/src/Rating.cc.o"
+},
+{
+  "directory": "/Users/tushar/Documents/feedback/StudentFeedback/build",
+  "command": "/usr/bin/c++  -I/Users/tushar/Documents/feedback/StudentFeedback/include -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/student_feedback.dir/src/TextInput.cc.o -c /Users/tushar/Documents/feedback/StudentFeedback/src/TextInput.cc",
+  "file": "/Users/tushar/Documents/feedback/StudentFeedback/src/TextInput.cc",
+  "output": "CMakeFiles/student_feedback.dir/src/TextInput.cc.o"
+},
+{
+  "directory": "/Users/tushar/Documents/feedback/StudentFeedback/build",
+  "command": "/usr/bin/c++  -I/Users/tushar/Documents/feedback/StudentFeedback/include -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/student_feedback.dir/src/UI.cc.o -c /Users/tushar/Documents/feedback/StudentFeedback/src/UI.cc",
+  "file": "/Users/tushar/Documents/feedback/StudentFeedback/src/UI.cc",
+  "output": "CMakeFiles/student_feedback.dir/src/UI.cc.o"
+}
+]

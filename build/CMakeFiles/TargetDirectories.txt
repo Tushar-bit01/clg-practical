@@ -1,0 +1,3 @@
+/Users/tushar/Documents/feedback/StudentFeedback/build/CMakeFiles/student_feedback.dir
+/Users/tushar/Documents/feedback/StudentFeedback/build/CMakeFiles/edit_cache.dir
+/Users/tushar/Documents/feedback/StudentFeedback/build/CMakeFiles/rebuild_cache.dir
