@@ -92,19 +92,19 @@ After submission, the application switches to a dedicated completion state rathe
 
 The initial state presents the application header, progress indicator, first teacher card, rating system, and feedback input.
 
-![Main feedback form](docs/screenshots/01-feedback-form.png)
+![Main feedback form](./docs/screenshots/01-feedback-form.png)
 
 ### Scrollable Feedback Form
 
 The feedback area can be scrolled to access the remaining teacher cards.
 
-![Scrollable feedback form](docs/screenshots/02-feedback-form-scrolled.png)
+![Scrollable feedback form](./docs/screenshots/02-feedback-form-scrolled.png)
 
 ### Completion Screen
 
 After submission, the application transitions to a dedicated completion screen.
 
-![Completion screen](docs/screenshots/03-success-screen.png)
+![Completion screen](./docs/screenshots/03-success-screen.png)
 
 ## Architecture
 
