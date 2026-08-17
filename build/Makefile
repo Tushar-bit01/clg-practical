@@ -225,6 +225,30 @@ src/TextInput.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/student_feedback.dir/build.make CMakeFiles/student_feedback.dir/src/TextInput.cc.s
 .PHONY : src/TextInput.cc.s
 
+src/Theme.o: src/Theme.cc.o
+.PHONY : src/Theme.o
+
+# target to build an object file
+src/Theme.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/student_feedback.dir/build.make CMakeFiles/student_feedback.dir/src/Theme.cc.o
+.PHONY : src/Theme.cc.o
+
+src/Theme.i: src/Theme.cc.i
+.PHONY : src/Theme.i
+
+# target to preprocess a source file
+src/Theme.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/student_feedback.dir/build.make CMakeFiles/student_feedback.dir/src/Theme.cc.i
+.PHONY : src/Theme.cc.i
+
+src/Theme.s: src/Theme.cc.s
+.PHONY : src/Theme.s
+
+# target to generate assembly for a file
+src/Theme.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/student_feedback.dir/build.make CMakeFiles/student_feedback.dir/src/Theme.cc.s
+.PHONY : src/Theme.cc.s
+
 src/UI.o: src/UI.cc.o
 .PHONY : src/UI.o
 
@@ -294,6 +318,9 @@ help:
 	@echo "... src/TextInput.o"
 	@echo "... src/TextInput.i"
 	@echo "... src/TextInput.s"
+	@echo "... src/Theme.o"
+	@echo "... src/Theme.i"
+	@echo "... src/Theme.s"
 	@echo "... src/UI.o"
 	@echo "... src/UI.i"
 	@echo "... src/UI.s"

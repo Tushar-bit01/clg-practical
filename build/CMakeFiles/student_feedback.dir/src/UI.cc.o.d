@@ -1076,4 +1076,5 @@ CMakeFiles/student_feedback.dir/src/UI.cc.o: \
   /opt/homebrew/include/SFML/System/Sleep.hpp \
   /Users/tushar/Documents/feedback/StudentFeedback/include/Button.h \
   /Users/tushar/Documents/feedback/StudentFeedback/include/Rating.h \
-  /Users/tushar/Documents/feedback/StudentFeedback/include/TextInput.h
+  /Users/tushar/Documents/feedback/StudentFeedback/include/TextInput.h \
+  /Users/tushar/Documents/feedback/StudentFeedback/include/Theme.h

@@ -23,7 +23,9 @@ private:
     void render();
 
     sf::RenderWindow window;
+
     UI ui;
 
-    Screen currentScreen = Screen::Form;
+    Screen currentScreen =
+        Screen::Form;
 };

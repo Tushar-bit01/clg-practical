@@ -7,25 +7,37 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System)
+find_package(
+    SFML 3
+    REQUIRED
+    COMPONENTS
+        Graphics
+        Window
+        System
+)
 
-add_executable(student_feedback
+add_executable(
+    student_feedback
+
     src/main.cc
     src/App.cc
     src/Button.cc
     src/Rating.cc
     src/TextInput.cc
     src/UI.cc
+    src/Theme.cc
 )
 
-target_include_directories(student_feedback
+target_include_directories(
+    student_feedback
     PRIVATE
-    ${PROJECT_SOURCE_DIR}/include
+        ${PROJECT_SOURCE_DIR}/include
 )
 
-target_link_libraries(student_feedback
+target_link_libraries(
+    student_feedback
     PRIVATE
-    SFML::Graphics
-    SFML::Window
-    SFML::System
+        SFML::Graphics
+        SFML::Window
+        SFML::System
 )

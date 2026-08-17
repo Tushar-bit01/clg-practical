@@ -1077,4 +1077,5 @@ CMakeFiles/student_feedback.dir/src/App.cc.o: \
   /Users/tushar/Documents/feedback/StudentFeedback/include/UI.h \
   /Users/tushar/Documents/feedback/StudentFeedback/include/Button.h \
   /Users/tushar/Documents/feedback/StudentFeedback/include/Rating.h \
-  /Users/tushar/Documents/feedback/StudentFeedback/include/TextInput.h
+  /Users/tushar/Documents/feedback/StudentFeedback/include/TextInput.h \
+  /Users/tushar/Documents/feedback/StudentFeedback/include/Theme.h

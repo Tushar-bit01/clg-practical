@@ -34,5 +34,11 @@
   "command": "/usr/bin/c++  -I/Users/tushar/Documents/feedback/StudentFeedback/include -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/student_feedback.dir/src/UI.cc.o -c /Users/tushar/Documents/feedback/StudentFeedback/src/UI.cc",
   "file": "/Users/tushar/Documents/feedback/StudentFeedback/src/UI.cc",
   "output": "CMakeFiles/student_feedback.dir/src/UI.cc.o"
+},
+{
+  "directory": "/Users/tushar/Documents/feedback/StudentFeedback/build",
+  "command": "/usr/bin/c++  -I/Users/tushar/Documents/feedback/StudentFeedback/include -isystem /opt/homebrew/include -std=gnu++17 -arch arm64 -o CMakeFiles/student_feedback.dir/src/Theme.cc.o -c /Users/tushar/Documents/feedback/StudentFeedback/src/Theme.cc",
+  "file": "/Users/tushar/Documents/feedback/StudentFeedback/src/Theme.cc",
+  "output": "CMakeFiles/student_feedback.dir/src/Theme.cc.o"
 }
 ]

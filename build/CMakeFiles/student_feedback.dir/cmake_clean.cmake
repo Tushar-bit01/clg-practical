@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/student_feedback.dir/src/Rating.cc.o.d"
   "CMakeFiles/student_feedback.dir/src/TextInput.cc.o"
   "CMakeFiles/student_feedback.dir/src/TextInput.cc.o.d"
+  "CMakeFiles/student_feedback.dir/src/Theme.cc.o"
+  "CMakeFiles/student_feedback.dir/src/Theme.cc.o.d"
   "CMakeFiles/student_feedback.dir/src/UI.cc.o"
   "CMakeFiles/student_feedback.dir/src/UI.cc.o.d"
   "CMakeFiles/student_feedback.dir/src/main.cc.o"

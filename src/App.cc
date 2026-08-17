@@ -1,11 +1,13 @@
 #include "App.h"
+#include "Theme.h"
 
 App::App()
     : window(
-          sf::VideoMode({1000, 700}),
-          "Student Feedback System"
+          sf::VideoMode({1000, 820}),
+          "Student Feedback"
       )
 {
+    window.setVerticalSyncEnabled(true);
 }
 
 void App::run()
@@ -20,31 +22,64 @@ void App::run()
 
 void App::processEvents()
 {
-    while (const std::optional event = window.pollEvent())
+    while (
+        const std::optional event =
+            window.pollEvent()
+    )
     {
-        if (event->is<sf::Event::Closed>())
+        if (
+            event->is<
+                sf::Event::Closed>()
+        )
         {
             window.close();
         }
 
-        ui.handleEvent(*event);
-
-        if (const auto* mousePressed =
-                event->getIf<sf::Event::MouseButtonPressed>())
+        if (
+            currentScreen ==
+            Screen::Form
+        )
         {
-            if (mousePressed->button == sf::Mouse::Button::Left)
+            ui.handleEvent(
+                *event
+            );
+
+            if (
+                const auto* mousePressed =
+                    event->getIf<
+                        sf::Event::MouseButtonPressed>()
+            )
             {
-                sf::Vector2f mousePosition{
-                    static_cast<float>(mousePressed->position.x),
-                    static_cast<float>(mousePressed->position.y)
-                };
-
-                ui.handleClick(mousePosition);
-
-                if (currentScreen == Screen::Form &&
-                    ui.isSubmitClicked(mousePosition))
+                if (
+                    mousePressed->button ==
+                    sf::Mouse::Button::Left
+                )
                 {
-                    currentScreen = Screen::Success;
+                    sf::Vector2f mousePosition{
+                        static_cast<float>(
+                            mousePressed
+                                ->position.x
+                        ),
+
+                        static_cast<float>(
+                            mousePressed
+                                ->position.y
+                        )
+                    };
+
+                    ui.handleClick(
+                        mousePosition
+                    );
+
+                    if (
+                        ui.isSubmitClicked(
+                            mousePosition
+                        )
+                    )
+                    {
+                        currentScreen =
+                            Screen::Success;
+                    }
                 }
             }
         }
@@ -53,28 +88,46 @@ void App::processEvents()
 
 void App::update()
 {
-    if (currentScreen == Screen::Form)
+    if (
+        currentScreen ==
+        Screen::Form
+    )
     {
-        sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
+        const sf::Vector2i mousePosition =
+            sf::Mouse::getPosition(
+                window
+            );
 
         ui.update({
-            static_cast<float>(mousePosition.x),
-            static_cast<float>(mousePosition.y)
+            static_cast<float>(
+                mousePosition.x
+            ),
+
+            static_cast<float>(
+                mousePosition.y
+            )
         });
     }
 }
 
 void App::render()
 {
-    window.clear(sf::Color(245, 247, 250));
+    window.clear(
+        Theme::background()
+    );
 
-    if (currentScreen == Screen::Form)
+    if (
+        currentScreen ==
+        Screen::Form
+    )
     {
         ui.render(window);
     }
     else
     {
-        ui.renderSuccess(window);
+        ui.renderSuccess(
+            window
+        );
     }
 
     window.display();

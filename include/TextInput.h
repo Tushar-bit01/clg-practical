@@ -3,7 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 
-class TextInput {
+class TextInput
+{
 public:
     TextInput(
         const sf::Font& font,
@@ -11,9 +12,21 @@ public:
         sf::Vector2f size
     );
 
-    void handleEvent(const sf::Event& event);
-    void update(sf::Vector2f mousePosition);
-    void render(sf::RenderWindow& window);
+    void setPosition(
+        sf::Vector2f position
+    );
+
+    void handleEvent(
+        const sf::Event& event
+    );
+
+    void update(
+        sf::Vector2f mousePosition
+    );
+
+    void render(
+        sf::RenderWindow& window
+    );
 
 private:
     sf::RectangleShape box;

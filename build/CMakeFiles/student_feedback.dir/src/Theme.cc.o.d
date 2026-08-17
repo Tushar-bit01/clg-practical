@@ -1,6 +1,6 @@
-CMakeFiles/student_feedback.dir/src/Rating.cc.o: \
-  /Users/tushar/Documents/feedback/StudentFeedback/src/Rating.cc \
-  /Users/tushar/Documents/feedback/StudentFeedback/include/Rating.h \
+CMakeFiles/student_feedback.dir/src/Theme.cc.o: \
+  /Users/tushar/Documents/feedback/StudentFeedback/src/Theme.cc \
+  /Users/tushar/Documents/feedback/StudentFeedback/include/Theme.h \
   /opt/homebrew/include/SFML/Graphics.hpp \
   /opt/homebrew/include/SFML/Graphics/BlendMode.hpp \
   /opt/homebrew/include/SFML/Graphics/Export.hpp \
@@ -1073,5 +1073,4 @@ CMakeFiles/student_feedback.dir/src/Rating.cc.o: \
   /opt/homebrew/include/SFML/System/FileInputStream.hpp \
   /opt/homebrew/include/SFML/System/InputStream.hpp \
   /opt/homebrew/include/SFML/System/MemoryInputStream.hpp \
-  /opt/homebrew/include/SFML/System/Sleep.hpp \
-  /Users/tushar/Documents/feedback/StudentFeedback/include/Theme.h
+  /opt/homebrew/include/SFML/System/Sleep.hpp

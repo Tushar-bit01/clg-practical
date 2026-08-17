@@ -1,63 +1,128 @@
 #include "TextInput.h"
+#include "Theme.h"
 
 TextInput::TextInput(
     const sf::Font& font,
     sf::Vector2f position,
     sf::Vector2f size
 )
-    : text(font, "", 17),
-      placeholder(font, "Write your feedback here...", 17)
+    : text(
+          font,
+          "",
+          Theme::bodySize()
+      ),
+
+      placeholder(
+          font,
+          "WRITE YOUR FEEDBACK...",
+          Theme::bodySize()
+      )
 {
     box.setPosition(position);
     box.setSize(size);
 
-    box.setFillColor(sf::Color(248, 250, 252));
-    box.setOutlineThickness(1.f);
-    box.setOutlineColor(sf::Color(226, 232, 240));
+    box.setFillColor(
+        Theme::panelDark()
+    );
 
-    text.setFillColor(sf::Color(30, 41, 59));
+    box.setOutlineThickness(2.f);
 
-    placeholder.setFillColor(sf::Color(148, 163, 184));
+    box.setOutlineColor(
+        Theme::border()
+    );
+
+    text.setFillColor(
+        Theme::textPrimary()
+    );
+
+    placeholder.setFillColor(
+        Theme::textMuted()
+    );
+
+    setPosition(position);
+}
+
+void TextInput::setPosition(
+    sf::Vector2f position
+)
+{
+    box.setPosition(position);
+
     placeholder.setPosition({
-        position.x + 15.f,
-        position.y + 12.f
+        position.x + 14.f,
+        position.y + 10.f
+    });
+
+    updateTextPosition();
+}
+
+void TextInput::updateTextPosition()
+{
+    const auto position =
+        box.getPosition();
+
+    text.setPosition({
+        position.x + 14.f,
+        position.y + 10.f
     });
 }
 
-void TextInput::update(sf::Vector2f mousePosition)
+void TextInput::update(
+    sf::Vector2f mousePosition
+)
 {
-    if (box.getGlobalBounds().contains(mousePosition))
+    const bool inside =
+        box.getGlobalBounds()
+            .contains(mousePosition);
+
+    if (focused)
     {
-        box.setOutlineColor(sf::Color(37, 99, 235));
+        box.setOutlineColor(
+            Theme::yellow()
+        );
     }
-    else if (!focused)
+    else if (inside)
     {
-        box.setOutlineColor(sf::Color(226, 232, 240));
+        box.setOutlineColor(
+            Theme::red()
+        );
+    }
+    else
+    {
+        box.setOutlineColor(
+            Theme::border()
+        );
     }
 }
 
-void TextInput::handleEvent(const sf::Event& event)
+void TextInput::handleEvent(
+    const sf::Event& event
+)
 {
-    if (const auto* mousePressed =
-            event.getIf<sf::Event::MouseButtonPressed>())
+    if (
+        const auto* mousePressed =
+            event.getIf<
+                sf::Event::MouseButtonPressed>()
+    )
     {
-        if (mousePressed->button == sf::Mouse::Button::Left)
+        if (
+            mousePressed->button ==
+            sf::Mouse::Button::Left
+        )
         {
             sf::Vector2f mousePosition{
-                static_cast<float>(mousePressed->position.x),
-                static_cast<float>(mousePressed->position.y)
+                static_cast<float>(
+                    mousePressed->position.x
+                ),
+
+                static_cast<float>(
+                    mousePressed->position.y
+                )
             };
 
-            focused = box.getGlobalBounds().contains(mousePosition);
-
-            if (focused)
-            {
-                box.setOutlineColor(sf::Color(37, 99, 235));
-            }
-            else
-            {
-                box.setOutlineColor(sf::Color(226, 232, 240));
-            }
+            focused =
+                box.getGlobalBounds()
+                    .contains(mousePosition);
         }
     }
 
@@ -66,9 +131,14 @@ void TextInput::handleEvent(const sf::Event& event)
         return;
     }
 
-    if (const auto* textEntered = event.getIf<sf::Event::TextEntered>())
+    if (
+        const auto* textEntered =
+            event.getIf<
+                sf::Event::TextEntered>()
+    )
     {
-        const char32_t unicode = textEntered->unicode;
+        const char32_t unicode =
+            textEntered->unicode;
 
         if (unicode == '\b')
         {
@@ -77,31 +147,32 @@ void TextInput::handleEvent(const sf::Event& event)
                 value.pop_back();
             }
         }
-        else if (unicode == '\r' || unicode == '\n')
+        else if (
+            unicode == '\r' ||
+            unicode == '\n'
+        )
         {
             value.push_back('\n');
         }
-        else if (unicode >= 32 && unicode < 127)
+        else if (
+            unicode >= 32 &&
+            unicode < 127
+        )
         {
-            value.push_back(static_cast<char>(unicode));
+            value.push_back(
+                static_cast<char>(unicode)
+            );
         }
 
         text.setString(value);
+
         updateTextPosition();
     }
 }
 
-void TextInput::updateTextPosition()
-{
-    auto position = box.getPosition();
-
-    text.setPosition({
-        position.x + 15.f,
-        position.y + 12.f
-    });
-}
-
-void TextInput::render(sf::RenderWindow& window)
+void TextInput::render(
+    sf::RenderWindow& window
+)
 {
     window.draw(box);
 

@@ -1,59 +1,94 @@
 #include "Rating.h"
+#include "Theme.h"
 
 #include <cmath>
 
 namespace
 {
     constexpr float PI = 3.14159265359f;
-    constexpr float OUTER_RADIUS = 24.f;
-    constexpr float INNER_RADIUS = 10.f;
-    constexpr float STAR_SPACING = 65.f;
+
+    constexpr float OUTER_RADIUS = 17.f;
+    constexpr float INNER_RADIUS = 7.f;
+
+    constexpr float STAR_SPACING = 43.f;
 }
 
-Rating::Rating(sf::Vector2f position)
+Rating::Rating(
+    sf::Vector2f position
+)
+    : position(position)
 {
+    setPosition(position);
+}
+
+void Rating::setPosition(
+    sf::Vector2f newPosition
+)
+{
+    position = newPosition;
+
     for (int i = 0; i < 5; ++i)
     {
         createStar(
             stars[i],
             {
-                position.x + i * STAR_SPACING,
+                position.x +
+                    i * STAR_SPACING,
+
                 position.y
             }
         );
     }
 }
 
-void Rating::createStar(sf::ConvexShape& star, sf::Vector2f center)
+void Rating::createStar(
+    sf::ConvexShape& star,
+    sf::Vector2f center
+)
 {
     star.setPointCount(10);
 
     for (int i = 0; i < 10; ++i)
     {
-        float radius = (i % 2 == 0)
-            ? OUTER_RADIUS
-            : INNER_RADIUS;
+        const float radius =
+            (i % 2 == 0)
+                ? OUTER_RADIUS
+                : INNER_RADIUS;
 
-        float angle = -PI / 2.f + i * PI / 5.f;
+        const float angle =
+            -PI / 2.f +
+            i * PI / 5.f;
 
-        sf::Vector2f point{
-            center.x + std::cos(angle) * radius,
-            center.y + std::sin(angle) * radius
-        };
+        star.setPoint(
+            i,
+            {
+                center.x +
+                    std::cos(angle) * radius,
 
-        star.setPoint(i, point);
+                center.y +
+                    std::sin(angle) * radius
+            }
+        );
     }
 
-    star.setFillColor(sf::Color(203, 213, 225));
+    star.setFillColor(
+        Theme::starEmpty()
+    );
 }
 
-void Rating::update(sf::Vector2f mousePosition)
+void Rating::update(
+    sf::Vector2f mousePosition
+)
 {
     hoveredRating = 0;
 
     for (int i = 0; i < 5; ++i)
     {
-        if (stars[i].getGlobalBounds().contains(mousePosition))
+        if (
+            stars[i]
+                .getGlobalBounds()
+                .contains(mousePosition)
+        )
         {
             hoveredRating = i + 1;
             break;
@@ -61,11 +96,17 @@ void Rating::update(sf::Vector2f mousePosition)
     }
 }
 
-void Rating::handleClick(sf::Vector2f mousePosition)
+void Rating::handleClick(
+    sf::Vector2f mousePosition
+)
 {
     for (int i = 0; i < 5; ++i)
     {
-        if (stars[i].getGlobalBounds().contains(mousePosition))
+        if (
+            stars[i]
+                .getGlobalBounds()
+                .contains(mousePosition)
+        )
         {
             selectedRating = i + 1;
             break;
@@ -73,21 +114,29 @@ void Rating::handleClick(sf::Vector2f mousePosition)
     }
 }
 
-void Rating::render(sf::RenderWindow& window)
+void Rating::render(
+    sf::RenderWindow& window
+)
 {
     for (int i = 0; i < 5; ++i)
     {
         if (i < selectedRating)
         {
-            stars[i].setFillColor(sf::Color(250, 180, 40));
+            stars[i].setFillColor(
+                Theme::starSelected()
+            );
         }
         else if (i < hoveredRating)
         {
-            stars[i].setFillColor(sf::Color(250, 210, 100));
+            stars[i].setFillColor(
+                Theme::starHover()
+            );
         }
         else
         {
-            stars[i].setFillColor(sf::Color(203, 213, 225));
+            stars[i].setFillColor(
+                Theme::starEmpty()
+            );
         }
 
         window.draw(stars[i]);

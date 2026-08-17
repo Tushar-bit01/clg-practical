@@ -1,4 +1,5 @@
 #include "Button.h"
+#include "Theme.h"
 
 Button::Button(
     const sf::Font& font,
@@ -6,42 +7,80 @@ Button::Button(
     sf::Vector2f position,
     sf::Vector2f size
 )
-    : text(font, label, 18)
+    : text(
+          font,
+          label,
+          Theme::buttonSize()
+      )
 {
     shape.setPosition(position);
     shape.setSize(size);
-    shape.setFillColor(sf::Color(37, 99, 235));
 
-    text.setFillColor(sf::Color::White);
+    shape.setFillColor(
+        Theme::red()
+    );
+
+    shape.setOutlineThickness(3.f);
+
+    shape.setOutlineColor(
+        Theme::yellow()
+    );
+
+    text.setFillColor(
+        Theme::textPrimary()
+    );
 }
 
-void Button::update(sf::Vector2f mousePosition)
+void Button::update(
+    sf::Vector2f mousePosition
+)
 {
-    hovered = shape.getGlobalBounds().contains(mousePosition);
+    hovered =
+        shape.getGlobalBounds()
+            .contains(mousePosition);
 
     if (hovered)
     {
-        shape.setFillColor(sf::Color(29, 78, 216));
+        shape.setFillColor(
+            Theme::redLight()
+        );
+
+        shape.setOutlineColor(
+            Theme::yellowLight()
+        );
     }
     else
     {
-        shape.setFillColor(sf::Color(37, 99, 235));
+        shape.setFillColor(
+            Theme::red()
+        );
+
+        shape.setOutlineColor(
+            Theme::yellow()
+        );
     }
 }
 
-void Button::render(sf::RenderWindow& window)
+void Button::render(
+    sf::RenderWindow& window
+)
 {
-    const auto bounds = text.getLocalBounds();
-    const auto buttonPosition = shape.getPosition();
-    const auto buttonSize = shape.getSize();
+    const auto bounds =
+        text.getLocalBounds();
+
+    const auto position =
+        shape.getPosition();
+
+    const auto size =
+        shape.getSize();
 
     text.setPosition({
-        buttonPosition.x +
-            (buttonSize.x - bounds.size.x) / 2.f -
+        position.x +
+            (size.x - bounds.size.x) / 2.f -
             bounds.position.x,
 
-        buttonPosition.y +
-            (buttonSize.y - bounds.size.y) / 2.f -
+        position.y +
+            (size.y - bounds.size.y) / 2.f -
             bounds.position.y
     });
 
@@ -49,7 +88,11 @@ void Button::render(sf::RenderWindow& window)
     window.draw(text);
 }
 
-bool Button::isClicked(sf::Vector2f mousePosition) const
+bool Button::isClicked(
+    sf::Vector2f mousePosition
+) const
 {
-    return shape.getGlobalBounds().contains(mousePosition);
+    return shape
+        .getGlobalBounds()
+        .contains(mousePosition);
 }
